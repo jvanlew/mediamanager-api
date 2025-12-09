@@ -7,16 +7,17 @@ spring:
     name: mediamanager-api
   main:
     banner-mode: "off"
-#  mongodb:
-#    applicationName: free-cluster
-#    connectionStringScheme: mongodb_srv
-#    hostPortList:
-#      - free-cluster.bkukjng.mongodb.net
-#    username: ${MONGO_USER}
-#    encryptedSecret: ${MONGO_SECRET}
-#    useTls: true
-#    database: vanlewdb_java
-#    authentication-database: admin
+
+  mongodb:
+    applicationName: free-cluster
+    connectionStringScheme: mongodb_srv
+    hostPortList:
+      - free-cluster.bkukjng.mongodb.net
+    username: ${MONGO_USER}
+    encryptedSecret: ${MONGO_SECRET}
+    useTls: true
+    database: vanlewdb_mediamanager
+    authentication-database: admin
 
 springdoc:
   api-docs:

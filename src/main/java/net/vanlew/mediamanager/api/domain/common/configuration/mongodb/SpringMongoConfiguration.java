@@ -23,7 +23,7 @@ import lombok.Setter;
 import net.vanlew.mediamanager.api.domain.common.configuration.mongodb.enumerations.ConnectionStringSchemes;
 
 @Configuration
-@ConfigurationProperties(prefix = "spring.data.mongodb")
+@ConfigurationProperties(prefix = "spring.mongodb")
 @EnableMongoRepositories
 @AllArgsConstructor
 @NoArgsConstructor
