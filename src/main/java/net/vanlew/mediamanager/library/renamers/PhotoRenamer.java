@@ -96,6 +96,10 @@ public class PhotoRenamer extends MediaRenamerBase {
 
     @SneakyThrows
     public Date extractDate(File photoFile) {
+        if (photoFile==null || !photoFile.exists()) {
+            return null;
+        }
+
         var metadata = ImageMetadataReader.readMetadata(photoFile);
         // obtain the Exif directory
         ExifSubIFDDirectory directory = metadata.getFirstDirectoryOfType(ExifSubIFDDirectory.class);
@@ -107,34 +111,6 @@ public class PhotoRenamer extends MediaRenamerBase {
         }
         return date;
     }
-
-//    @SneakyThrows
-//    public Date extractDateFromHeic(File photoFile) {
-//        var heicMetadata = ImageMetadataReader.readMetadata(photoFile);
-//        // obtain the Exif directory
-//        ExifSubIFDDirectory directory = heicMetadata.getFirstDirectoryOfType(ExifSubIFDDirectory.class);
-//
-//        // query the tag's value
-//        Date date = directory.getDate(ExifSubIFDDirectory.TAG_DATETIME_DIGITIZED, TimeZone.getDefault());
-//        if (date == null) {
-//            date = directory.getDateDigitized();
-//        }
-//        return date;
-//    }
-//
-//    @SneakyThrows
-//    public Date extractDateFromJpg(File photoFile) {
-//        var jpgMetadata = ImageMetadataReader.readMetadata(photoFile);
-//        // obtain the Exif directory
-//        ExifSubIFDDirectory directory = jpgMetadata.getFirstDirectoryOfType(ExifSubIFDDirectory.class);
-//
-//        // query the tag's value
-//        Date date = directory.getDate(ExifSubIFDDirectory.TAG_DATETIME_DIGITIZED, TimeZone.getDefault());
-//        if (date == null) {
-//            date = directory.getDateDigitized();
-//        }
-//        return date;
-//    }
 
     public String getUniqueFilename(String photoPath) {
         Path path = Paths.get(photoPath);

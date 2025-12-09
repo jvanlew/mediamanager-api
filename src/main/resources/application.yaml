@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  shutdown: graceful
+
+spring:
+  application:
+    name: mediamanager-api
+  main:
+    banner-mode: "off"
+#  mongodb:
+#    applicationName: free-cluster
+#    connectionStringScheme: mongodb_srv
+#    hostPortList:
+#      - free-cluster.bkukjng.mongodb.net
+#    username: ${MONGO_USER}
+#    encryptedSecret: ${MONGO_SECRET}
+#    useTls: true
+#    database: vanlewdb_java
+#    authentication-database: admin
+
+springdoc:
+  api-docs:
+    path: /api-docs/swagger.json
+    enabled: true
+  swagger-ui:
+    path: /api-docs/index.html
+    enabled: true
+
+logging:
+  config: classpath:log4j2.yaml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,conditions,metrics,mappings,caches
+  endpoint:
+    health:
+      show-details: never
+      show-components: always
+
